@@ -22,7 +22,7 @@ if ingredients_list:
     for fruit_chosen in ingredients_list:
         ingredients_string += fruit_chosen + ' '
         search_column=pd_df.loc[pd_df['FRUIT_NAME'] == fruit_chosen, 'SEARCH_COLUMN'].iloc[0]
-        st.write('The search value for ', fruit_chosen,' is ', search_column, '.')
+        # st.write('The search value for ', fruit_chosen,' is ', search_column, '.')
         st.subheader(fruit_chosen +  ' Nutrition Information')
         fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + search_column)
         fv_df = st.dataframe(data=fruityvice_response.json(), use_container_width=True)
